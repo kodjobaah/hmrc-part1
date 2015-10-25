@@ -26,21 +26,21 @@ class CheckoutSystemSpec  extends FlatSpec with Matchers {
 
   }
 
-  "if list contains Two apples" should "return £1.20 " in {
+  "if list contains Two apples" should "return £0.60 " in {
 
     val items: List[String] = List("Apple","Apple")
 
     val price = checkoutSystem.checkout(items)
-    price should be === "£1.20"
+    price should be === "£0.60"
 
   }
 
-  "if list contains Thee apples" should "return £1.80 " in {
+  "if list contains Thee apples" should "return £1.20 " in {
 
     val items: List[String] = List("Apple","Apple","Apple")
 
     val price = checkoutSystem.checkout(items)
-    price should be === "£1.80"
+    price should be === "£1.20"
 
   }
 
@@ -60,16 +60,22 @@ class CheckoutSystemSpec  extends FlatSpec with Matchers {
     price should be === "£0.50"
   }
 
-  "if list contains three oranges" should "return £0.75" in {
+  "if list contains three oranges" should "return £0.50" in {
     val items: List[String] = List("Orange","Orange","Orange")
+    val price = checkoutSystem.checkout(items)
+    price should be === "£0.50"
+  }
+
+  "if list contains Four oranges" should "return £0.75" in {
+    val items: List[String] = List("Orange","Orange","Orange","Orange")
     val price = checkoutSystem.checkout(items)
     price should be === "£0.75"
   }
 
-  "if list contains 3 apples and one orange" should "return £2.05" in {
+  "if list contains 3 apples and one orange" should "return £1.45" in {
     val items: List[String] = List("Apple","Apple","Orange","Apple")
     val price = checkoutSystem.checkout(items)
-    price should be === "£2.05"
+    price should be === "£1.45"
   }
 }
 

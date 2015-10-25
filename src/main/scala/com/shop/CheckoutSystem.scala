@@ -23,9 +23,9 @@ class CheckoutSystem {
     for((item,count) <- items) {
       val cost =  item match {
         case "Apple" =>
-          count * CostOfApple
+          ((count/2) + (count % 2)) * CostOfApple
         case "Orange" =>
-            count * CostOfOrange
+          ((count/3) * 2 * CostOfOrange) + ((count % 3) * CostOfOrange)
         case _ => 0.0
       }
       total = total + cost
